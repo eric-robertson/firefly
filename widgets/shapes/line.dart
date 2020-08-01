@@ -11,10 +11,10 @@ class ShapeLine extends StatelessWidget {
 	
 	Widget build ( BuildContext context ) {
 		return new Positioned(
-       left: x - width/4,
-       top: y - width/4,
-			 child : Transform.rotate(
-				 origin: Offset(-length/2 + width/2 , 0),
+			left: x - width/4,
+			top: y - width/4,
+		 	child : Transform.rotate(
+				origin: Offset(-length/2 + width/2 , 0),
 				child : Container(
 					height: width,
 					width: length,

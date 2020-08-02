@@ -8,10 +8,12 @@ class TextTitle extends StatelessWidget {
 	Widget build ( BuildContext context ) {
 		return Text(
 			text,
+			textAlign: TextAlign.center,
 			style: TextStyle( 
-			fontSize: 35.0, 
+				fontSize: 50.0, 
 				fontWeight: FontWeight.bold, 
-				color: FireflyTheme.getForeground()
+				color: FireflyTheme.getForeground(),
+				
 			)
 		);
 	}

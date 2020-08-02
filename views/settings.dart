@@ -27,7 +27,7 @@ class _SettingsPage extends StatelessWidget {
 	}
 
   Widget build(BuildContext context) {
-    return PageBlank(
+    return PageScroll(
 			ContainerGroup([
 				TextTitle("Settings"),
 				... otherSettings (),

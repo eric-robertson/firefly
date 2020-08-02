@@ -1,12 +1,12 @@
 part of firefly;
 
-class PageBlank extends StatefulWidget {
+class PageScroll extends StatefulWidget {
 	final Widget body;
-  PageBlank(this.body, { Key key,  }) : super(key: key);
-  _PageBlank createState() => _PageBlank();
+  PageScroll(this.body, { Key key,  }) : super(key: key);
+  _PageScroll createState() => _PageScroll();
 }
 	
-class _PageBlank extends State<PageBlank> {
+class _PageScroll extends State<PageScroll> {
 	
 	// * Rerender handlers
 
@@ -31,9 +31,11 @@ class _PageBlank extends State<PageBlank> {
 			body: Container(
 				child: Container(
 					color: FireflyTheme.getBackground(),
-					child: Container(
-						child : SafeArea( child : widget.body ),
-						margin: EdgeInsets.all( 20 )
+					child: SingleChildScrollView(
+						child: Container(
+							child : SafeArea( child : widget.body ),
+							margin: EdgeInsets.all( 20 )
+						)
 					),
 					constraints: BoxConstraints.expand(),
 				)

@@ -17,7 +17,7 @@ class ShapeCircle extends StatelessWidget {
 			),
 			decoration: new BoxDecoration(
 				borderRadius: new BorderRadius.circular(radius),
-				border: Border.all( color: FireflyTheme.getForeground(), width: width ),
+				border: Border.all( color: FireflyTheme.getAccent(), width: width ),
 			)
 		);
 	}

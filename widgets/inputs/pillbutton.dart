@@ -11,7 +11,7 @@ class ButtonPill extends StatelessWidget {
 		return InkWell ( 
 			child : Container(
 				padding: EdgeInsets.only(left: 10, right: 10),
-				margin: EdgeInsets.all( 5 ),
+				margin: EdgeInsets.only( top: 5, right: 10, bottom: 5 ),
 				child: TextPlain(text, invert: fill ),
 				decoration: new BoxDecoration(
 					borderRadius: new BorderRadius.circular(5.0),

@@ -56,7 +56,19 @@ class FireflyColors {
 	static _ThemeData _darkpurple = _ThemeData(
 		background: 0xff170c1c,
 		foreground: 0xff751c99,
-		accent: 0xff21022e,
+		accent: 0xff371545,
+	);
+
+	static _ThemeData _sky = _ThemeData(
+		background: 0xff009bc2,
+		foreground: 0xffebebeb,
+		accent: 0xff30b0d1,
+	);
+
+	static _ThemeData _fire = _ThemeData(
+		background: 0xff8a0000,
+		foreground: 0xff1d0c38,
+		accent: 0xff75000b,
 	);
 
 	// Access
@@ -68,7 +80,9 @@ class FireflyColors {
 		'lightpurple' : _lightpurple,
 		'dark' : _dark,
 		'darkgreen' : _darkgreen,
-		'darkpurple' : _darkpurple
+		'darkpurple' : _darkpurple,
+		'sky' : _sky,
+		'fire' : _fire
 	};
 
 

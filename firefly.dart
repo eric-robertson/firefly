@@ -17,6 +17,8 @@ part './views/settings.dart';
 part './src/rerenderController.dart';
 part './src/saveData.dart';
 
+// ! utils
+part './utils/time.dart';
 
 // ! Style 
 part './style/colors.dart';
@@ -39,6 +41,7 @@ part './widgets/shapes/line.dart';
 
 // * Layouts 
 part './widgets/layouts/blank.dart';
+part './widgets/layouts/blankScroll.dart';
 
 // * Text 
 part './widgets/text/bold.dart';

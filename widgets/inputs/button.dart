@@ -1,20 +1,19 @@
 part of firefly;
 
-class ButtonPill extends StatelessWidget {
+class ButtonPlain extends StatelessWidget {
 
 	final String text;
-	final bool fill;
 	final Function onTap;
-	ButtonPill(this.text, { this.fill = false, this.onTap });
+	ButtonPlain(this.text, this.onTap );
 	
 	Widget build ( BuildContext context ) {
+
 		return EffectRipple(
 			Container(
-				padding: EdgeInsets.only(left: 10, right: 10),
-				child: TextPlain(text, invert: fill ),
+				padding: EdgeInsets.only(left: 20, right: 20, top: 10, bottom : 10),
+				child: Align( child : TextPlain(text, center: true), alignment: Alignment.center),
 				decoration: new BoxDecoration(
 					borderRadius: new BorderRadius.circular(5.0),
-					color: fill ? FireflyTheme.getForeground() : FireflyTheme.getBackground(),
 					border: Border.all( color: FireflyTheme.getForeground(), width: 2 ),
 				)
 			),

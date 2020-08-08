@@ -15,8 +15,10 @@ class Main {
 		
 		await SaveData.initialize( appData, debugMode );
 		await _SettingsPage.initialize( appData );
-
-  	return _Firefly ( main: main );
+		Networking.load();
+		InAppPurchaseConnection.enablePendingPurchases();
+		
+  	return _Firefly ( main: main, name : settings['name'] );
 
 	}
 }
@@ -24,14 +26,16 @@ class Main {
 class _Firefly extends StatelessWidget {
 
 	final Widget main;
-	_Firefly({this.main});
+	final String name;
+	_Firefly({this.main, this.name});
 
 	Widget build (BuildContext context) {
 		return MaterialApp(
-			title: 'Boilerplate',
+			title: name,
 			debugShowCheckedModeBanner: false,
 			theme: ThemeData(
-				visualDensity: VisualDensity.adaptivePlatformDensity
+				primaryColor: Colors.white,
+				backgroundColor: Colors.white,
 			),
 			home: _Application( main: main )
 		);

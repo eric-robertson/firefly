@@ -33,7 +33,7 @@ class _ThemeSelector extends StatelessWidget {
 
 	Widget build (BuildContext context) {
 		return ContainerGroup([
-			TextPlain('Select Theme For This App'),
+			TextPlain('Choose Theme'),
 			Wrap ( 
 				children: generateOptions(),
 			)

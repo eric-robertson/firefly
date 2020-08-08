@@ -4,7 +4,7 @@ class _SettingsPage extends StatelessWidget {
 
 	static List<dynamic> _selectionSettings = [];
 
-	static Future<void> initialize (List<dynamic> data) {
+	static Future<void> initialize (List<dynamic> data) async{
 		data.forEach((elm) {
 			dynamic shown = elm['settings'];
 			if ( shown == null ) return;
@@ -24,6 +24,7 @@ class _SettingsPage extends StatelessWidget {
 				onChange: (n){ SaveData.updateAppData(e['name'] , n); }
 			);
 		}).toList();
+		
 	}
 
   Widget build(BuildContext context) {
@@ -32,6 +33,18 @@ class _SettingsPage extends StatelessWidget {
 				TextTitle("Settings"),
 				... otherSettings (),
 				_ThemeSelector(),
+				ButtonPlain('See our other minimalist apps',(n){ 
+					Navigator.push(
+						context,
+						MaterialPageRoute(builder: (context) => _SimilarApps()),
+					);
+				}),
+				ButtonPlain('Support Us',(n){ 
+					Navigator.push(
+						context,
+						MaterialPageRoute(builder: (context) => _Support()),
+					);
+				}),
 			])
 		);
   }

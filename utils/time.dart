@@ -78,6 +78,7 @@ class UtilTimeText {
 		}
 
 		else {
+			if ( h == 0 ) h = 12;
 			_.add( _indexToWord[h] );
 			if ( m < 10  ){
 				_.add('o\'');

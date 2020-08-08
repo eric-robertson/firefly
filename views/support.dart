@@ -4,63 +4,23 @@ part of firefly;
 class _Support extends StatelessWidget {
 
   final InAppPurchaseConnection _connection = InAppPurchaseConnection.instance;
-	
+	List<ProductDetails> products;
+
 	Future<void> initStoreInfo() async {
-		print('initStoer');
-		final bool isAvailable = await _connection.isAvailable();
-    if (!isAvailable) {
-      print('not available');
-      return;
-    }
 
-    ProductDetailsResponse productDetailResponse = await _connection.queryProductDetails({'support'});
-    if (productDetailResponse.error != null) {
-      print('error');
-      return;
-    }
-		print(productDetailResponse.productDetails);
-
-    if (productDetailResponse.productDetails.isEmpty) {
-      print('empty');
-    }
-		print('here1');
-    final QueryPurchaseDetailsResponse purchaseResponse = await _connection.queryPastPurchases();
-    if (purchaseResponse.error != null) {
-      print('hmmm');
-    }
-		print('here2');
-
-    final List<PurchaseDetails> verifiedPurchases = [];
-    for (PurchaseDetails purchase in purchaseResponse.pastPurchases) {
-			print('purcahse');
-      print( purchase );
-    }
-
-		print('here3');
-		const Set<String> _kIds = {'support'};
+		const Set<String> _kIds = {'support', 'support2'};
 		final ProductDetailsResponse response = await InAppPurchaseConnection.instance.queryProductDetails(_kIds);
-		if (response.notFoundIDs.isNotEmpty) {
-			print('Not Found');
-			print( response.notFoundIDs );
-		} else {
-			print('here11');
-			List<ProductDetails> products = response.productDetails;
-			for (ProductDetails product in products) {
-				print(product.id);
-				print('${product.title}: ${product.description} (cost is ${product.price})');
-			}
-			print('here2');
-			print(products[0].toString());
-			// Example: purchasing the first available item.
-			final PurchaseParam purchaseParam = PurchaseParam(productDetails: products[0]);
-			InAppPurchaseConnection.instance.buyConsumable(purchaseParam: purchaseParam);
+		products = response.productDetails;
+		for (ProductDetails product in products) {
+			print('${product.title}: ${product.description} (cost is ${product.price})');
 		}
+		print('Innitted');
     
   }
 
-  void _buyProduct(ProductDetails prod) async {
-    final PurchaseParam purchaseParam = PurchaseParam(productDetails: prod);
-    await _connection.buyConsumable(purchaseParam: purchaseParam, autoConsume: true);
+  void _buyProduct(id) async {
+		final PurchaseParam purchaseParam = PurchaseParam(productDetails: products.firstWhere((element) => element.id == id ));
+		InAppPurchaseConnection.instance.buyConsumable(purchaseParam: purchaseParam);
   }
 
 
@@ -70,13 +30,11 @@ class _Support extends StatelessWidget {
 			ContainerGroup([
 				TextTitle('Support'),
 				ContainerPad(),
-				ButtonPlain("Buy me a coffee for \$1", (_){
-					_buyProduct(ProductDetails(
-						id : 'support',
-						title: 'Buy me a cup of coffee',
-						description: 'Help support apps you love!',
-						price: "\$1.00"
-					));
+				ButtonPlain("Buy me a hot chocolate for \$1", (_){
+					_buyProduct('support');
+				}),
+				ButtonPlain("Buy me snack for \$3", (_){
+					_buyProduct('support2');
 				}),
 				ContainerPad(),
 				ContainerPad(),

@@ -2,6 +2,10 @@
 
 A insainly simple framework to make minimalist, themed, flutter apps in secconds
 
+## Live App Examples
+
+Clock App : [Google Play](https://play.google.com/store/apps/details?id=com.quiteSimply.clock)
+
 ## Example Images 
 
 App pages made with the firefly widgets implementing minimalistic styles
